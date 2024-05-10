@@ -15,11 +15,9 @@ from random import  choice, randint
 
 #          
                 
-@app.on_message(
-  command(["المبرمج","مبرمج السورس","مبرمج"])
-)
+@app.on_message(filters.regex(r"^(مطور السورس)$"))
 async def huhh(client: Client, message: Message):
-    dev_id = 5145609515
+    dev_id = 6912305851
     dev = await client.get_users(dev_id)
     name = dev.first_name
     usrnam = dev.username
@@ -28,16 +26,13 @@ async def huhh(client: Client, message: Message):
    
     await message.reply_photo(
         photo="downloads/developer.jpg",
-        caption=f"""<b>⌯ 𝙽𝙰𝙼𝙴 :</b> <a href='https://t.me/{usrnam}'>{name}</a>\n\n<b>⌯ 𝚄𝚂𝙴𝚁 :</b> {usrnam}""",
+        caption=f"""<b>⌯ 𝙳𝙴𝚅 :</b> <a href='https://t.me/{usrnam}'>{name}</a>\n\n<b>⌯ 𝚄𝚂𝙴𝚁 :</b> @{usrnam}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
                          name, url=f"https://t.me/{usrnam}"), 
-                 ],[
-                   InlineKeyboardButton(
-                        "•✯ 𝚂𝙾𝚄𝚁𝙲𝙴 𝙺𝙸𝙽𝙶 ✯•", url=f"https://t.me/EF_19"),
-                ],
+                 ],
 
             ]
 
