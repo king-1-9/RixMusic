@@ -50,7 +50,7 @@ async def start_group_call(c: Client, m: Message):
                 random_id=assistant.rnd_id() // 9000000000,
             )
         )
-        await msg.edit_text("تم فتح المكالمه بنجاح 𝄞~!")
+        await msg.edit_text("تم فتحت المكالمه..🦦.")
     except ChatAdminRequired:
         try:
             await app.promote_chat_member(chat_id, assid, privileges=ChatPrivileges(
@@ -86,7 +86,7 @@ async def start_group_call(c: Client, m: Message):
                 can_promote_members=False,
             ))
 
-            await msg.edit_text("تم فتح المكالمه بنجاح 𝄞~!")
+            await msg.edit_text("تم فتحت المكالمه..🦦.")
         except Exception as e:
             await msg.edit_text("خطأ أثناء محاولة رفع الصلاحيات. يرجى التأكد من صلاحيات البوت أو الحساب المساعد.")
 
@@ -108,7 +108,7 @@ async def stop_group_call(c: Client, m: Message):
         ):  
            return
         await assistant.invoke(DiscardGroupCall(call=group_call))
-        await msg.edit_text("تم اغلاق المكالمه بنجاح 𝄞~!")
+        await msg.edit_text("تم قفلت المكالمه..🦦.")
     except Exception as e:
       if "GROUPCALL_FORBIDDEN" in str(e):
        try:    
@@ -142,6 +142,6 @@ async def stop_group_call(c: Client, m: Message):
             can_promote_members=False,
             ),
          )                              
-         await msg.edit_text("تم اغلاق المكالمه بنجاح 𝄞~!")
+         await msg.edit_text("تم قفلت المكالمه..🦦.")
        except:
          await msg.edit_text("خطأ أثناء محاولة رفع الصلاحيات. يرجى التأكد من صلاحيات البوت أو الحساب المساعد.")
