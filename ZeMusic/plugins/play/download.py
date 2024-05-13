@@ -42,10 +42,10 @@ async def song_downloader(client, message: Message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        await m.edit("- لم يتم العثـور على نتائج ؟!\n- حـاول مجـدداً . . .")
+        await m.edit("ماش ماتعرف تشرح الاغنيه ماعرفت القاها .\nعيد من جديد يقلبي🫠.")
         print(str(e))
         return
-    await m.edit("<b>⇜ جـارِ التحميل ▬▭ . . .</b>")
+    await m.edit("<b>بيجيك المقطع اصبر ..♪</b>")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -57,7 +57,7 @@ async def song_downloader(client, message: Message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
-        await m.edit("<b>⇜ جـارِ التحميل ▬▬ . . .</b>")
+        await m.edit("<b>بيجيك المقطع اصبر ....♪</b>")
         
         await message.reply_audio(
             audio=audio_file,
