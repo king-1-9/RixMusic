@@ -1,11 +1,11 @@
 import math
 import config
 from ZeMusic import app 
-
 from pyrogram.types import InlineKeyboardButton
-
 from ZeMusic.utils.formatters import time_to_seconds
 
+
+lnk= "https://t.me/" +config.CHANNEL_LINK
 
 def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
@@ -67,7 +67,7 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
          ],[
-            InlineKeyboardButton(text=config.CHANNEL_NAME, url=config.CHANNEL_LINK)],
+            InlineKeyboardButton(text=config.CHANNEL_NAME, url=lnk)],
     ]
     return buttons
 
@@ -81,7 +81,7 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
          ],[
-            InlineKeyboardButton(text=config.CHANNEL_NAME, url=config.CHANNEL_LINK)],
+            InlineKeyboardButton(text=config.CHANNEL_NAME, url=lnk)],
     ]
     return buttons
 
