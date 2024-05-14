@@ -66,8 +66,13 @@
         "required": true
       },
       "CHANNEL_LINK": {
-        "description": "رابط قناتك.",
-        "value": "https://t.me/EF_19",
+        "description": "يوزر قناتك بدون @.",
+        "value": "",
+        "required": true
+      },
+      "SUPPORT_CHAT": {
+        "description": "رابط مجموعة الدعم.",
+        "value": "",
         "required": true
       },
       "LOGGER_ID": {
