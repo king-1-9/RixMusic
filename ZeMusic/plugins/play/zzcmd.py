@@ -8,7 +8,8 @@ from ZeMusic import app
 from ZeMusic.misc import HAPP, SUDOERS, XCB
 from config import OWNER_ID
 import config                                       
-                                       
+
+lnk= "https://t.me/" +config.CHANNEL_LINK
 @app.on_callback_query(filters.regex("zzzback"))
 async def zzzback(_, query: CallbackQuery):
    await query.edit_message_text(
@@ -28,7 +29,7 @@ async def zzzback(_, query: CallbackQuery):
                         "• اوامــر المطــور •", callback_data="zzzdv"),
                 ],[
                     InlineKeyboardButton(
-                        text=config.CHANNEL_NAME, url=config.CHANNEL_LINK),
+                        text=config.CHANNEL_NAME, url=lnk),
                 ],
             ]
         ),
