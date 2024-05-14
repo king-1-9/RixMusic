@@ -10,6 +10,7 @@ from ZeMusic import app
 from config import OWNER_ID, LOGGER_ID, START_IMG_URL
 import config
 
+lnk= "https://t.me/" +config.CHANNEL_LINK
 @app.on_message(filters.regex(r"^(اوامر الميوزك|♪|ميوزك|الميوزك)$"))
 async def zdatsr(client: Client, message: Message):
     usr = await client.get_users(OWNER_ID)
@@ -33,7 +34,7 @@ async def zdatsr(client: Client, message: Message):
                         "• اوامــر المطــور •", callback_data="zzzdv"),
                 ],[
                     InlineKeyboardButton(
-                        text=config.CHANNEL_NAME, url=config.CHANNEL_LINK),
+                        text=config.CHANNEL_NAME, url=lnk),
                 ],
             ]
         ),
