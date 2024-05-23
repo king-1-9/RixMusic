@@ -35,6 +35,7 @@ Nem = config.BOT_NAME + " شغل"
             "play",
             "vplay",
             "cplay",
+            "cp",
             "cvplay",
             "playforce",
             "vplayforce",
