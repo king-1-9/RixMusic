@@ -97,9 +97,16 @@ async def start_gp(client, message: Message, _):
     uptime = int(time.time() - _boot_)
     await message.reply_photo(
         photo=config.START_IMG_URL,
-        caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
-        reply_markup=InlineKeyboardMarkup(out),
-    )
+        caption=f"""منور ببوت الحمايه والتسليه وتشغيل الصوتيات بالمكالمه🤌🏻\n\n<a href='https://t.me/AAAzeo'>قناه اذكار🌿.</a>""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="أضفني إلى مجموعتك",
+                        url=f"https://t.me/{app.username}?startgroup=true",)
+                ],
+            ]
+        ),)
     return await add_served_chat(message.chat.id)
 
 
