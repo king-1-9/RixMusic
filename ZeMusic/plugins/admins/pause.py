@@ -8,9 +8,9 @@ from ZeMusic.utils.decorators import AdminRightsCheck
 from ZeMusic.utils.inline import close_markup
 from config import BANNED_USERS
 
-@app.on_message(filters.regex(r"^(pause|cpause|ايقاف مؤقت|إيقاف مؤقت|وقف|توقف|ce)$") & filters.group & ~BANNED_USERS)
+@app.on_message(filters.regex(r"^(pause|cpause|ايقاف مؤقت|إيقاف مؤقت|وقف|توقف|ce)$") & filters.group & ~filters.user(BANNED_USERS))
 @AdminRightsCheck
-async def pause_admin(cli, message: Message, _, chat_id):
+async def pause_admin(client, message: Message, _, chat_id):
     if not await is_music_playing(chat_id):
         return await message.reply_text(_["admin_1"])
     await music_off(chat_id)
