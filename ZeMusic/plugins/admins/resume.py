@@ -8,10 +8,7 @@ from ZeMusic.utils.decorators import AdminRightsCheck
 from ZeMusic.utils.inline import close_markup
 from config import BANNED_USERS
 
-# قم بتحقق من الدالة AdminRightsCheck وتأكد من أنها موجودة ومستوردة بشكل صحيح
-
-@app.on_message(filters.command(["resume", "كمل", "استئناف", "إستئناف", "cresume","cm"], "") & filters.group & ~BANNED_USERS
-)
+@app.on_message(filters.regex(r"^(resume|كمل|استئناف|إستئناف|cresume|cm)$") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def resume_com(cli, message: Message, _, chat_id):
     if await is_music_playing(chat_id):
