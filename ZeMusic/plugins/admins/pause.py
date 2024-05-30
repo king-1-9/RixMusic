@@ -8,13 +8,8 @@ from ZeMusic.utils.decorators import AdminRightsCheck
 from ZeMusic.utils.inline import close_markup
 from config import BANNED_USERS
 
-# دالة للتحقق من أن الرسالة تحتوي على أمر واحد فقط
-def is_single_command(_, __, message: Message):
-    commands = ["pause", "cpause", "ايقاف مؤقت", "إيقاف مؤقت", "وقف", "توقف", "ce"]
-    text = message.text.strip().lower()
-    return text in commands
 
-@app.on_message(filters.command(["pause", "cpause", "ايقاف مؤقت", "إيقاف مؤقت", "وقف", "توقف", "ce"], "") & filters.group & ~BANNED_USERS & filters.create(is_single_command))
+@app.on_message(filters.command(["pause", "cpause","ايقاف مؤقت","إيقاف مؤقت","وقف", "توقف","ce"], "") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def pause_admin(cli, message: Message, _, chat_id):
     if not await is_music_playing(chat_id):
