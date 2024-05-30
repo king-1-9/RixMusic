@@ -13,12 +13,8 @@ from strings import get_string
 
 #Nem = config.BOT_NAME + " اسكت"
 #Men = config.BOT_NAME + " ايقاف"
-@app.on_message(
-    filters.command(["end", "stop", "cend", "cstop","ct"],"") & filters.group & ~BANNED_USERS
-)
-@app.on_message(
-    command(["اسكت","ايقاف"]) & filters.group & ~BANNED_USERS
-)
+@app.on_message(filters.regex(r"^(end|stop|cend|cstop|ct)$") & filters.group & ~BANNED_USERS)
+@app.on_message(filters.regex(r"^(ايقاف|اسكت)$") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def stop_music(cli, message: Message, _, chat_id):
     if not len(message.command) == 1:
@@ -30,13 +26,8 @@ async def stop_music(cli, message: Message, _, chat_id):
     )
 
 
-
-@app.on_message(
-    filters.command(["end", "stop", "cend", "cstop"]) & filters.channel & ~BANNED_USERS
-)
-@app.on_message(
-    command(["اسكت","ايقاف"]) & filters.channel & ~BANNED_USERS
-)
+@app.on_message(filters.regex(r"^(end|stop|cend|cstop|ct)$") & filters.channel & ~BANNED_USERS)
+@app.on_message(filters.regex(r"^(ايقاف|اسكت)$") & filters.channel & ~BANNED_USERS)
 async def stop_music(cli, message: Message):
     try:
         await message.delete()
