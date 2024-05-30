@@ -14,7 +14,7 @@ from strings import get_string
 #Nem = config.BOT_NAME + " اسكت"
 #Men = config.BOT_NAME + " ايقاف"
 @app.on_message(
-    filters.command(["end", "stop", "cend", "cstop"]) & filters.group & ~BANNED_USERS
+    filters.command(["end", "stop", "cend", "cstop","ct"]) & filters.group & ~BANNED_USERS
 )
 @app.on_message(
     command(["اسكت","ايقاف"]) & filters.group & ~BANNED_USERS
