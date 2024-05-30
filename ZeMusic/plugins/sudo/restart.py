@@ -110,7 +110,7 @@ async def update_(client, message, _):
         exit()
 
 
-@app.on_message(filters.command(["restart", "اعاده تشغيل", "إعاده تشغيل" ,"اعادة تشغيل", "إعادة تشغيل"]) & SUDOERS)
+@app.on_message(filters.regex(r"^(ريسيت|اعاده تشغيل|اعادة تشغيل)$")) & SUDOERS)
 async def restart_(_, message):
     response = await message.reply_text("جاري اعادة تشغيل...")
     ac_chats = await get_active_chats()
@@ -131,5 +131,5 @@ async def restart_(_, message):
         shutil.rmtree("cache")
     except:
         pass
-    await response.edit_text("ᯓ ⌯ 𝚂𝙾𝚄𝚁𝙲𝙴 𝙺𝙸𝙽𝙶 🝢 إعــادة التشغيــل\n•─────────────────•\n\n•⎆┊يتـم الان اعـادة تشغيـل بـوت ميوزك\n•⎆┊قـد يستغـرق الامـر 3-5 دقائـق...")
+    await response.edit_text("• الحين بعيد تشغيل البوت\n\n• يمكن يقعد 5-3 دقايق لعاده التشغيل.")
     os.system(f"kill -9 {os.getpid()} && bash start")
