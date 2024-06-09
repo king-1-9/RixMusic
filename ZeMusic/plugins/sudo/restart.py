@@ -110,7 +110,7 @@ async def update_(client, message, _):
         exit()
 
 
-@app.on_message(filters.regex(r"^(ريسيت|اعاده تشغيل|اعادة تشغيل)$") & SUDOERS)
+@app.on_message(filters.regex(r"^(ريسيت)$") & SUDOERS)
 async def restart_(_, message):
     response = await message.reply_text("جاري اعادة تشغيل...")
     ac_chats = await get_active_chats()
